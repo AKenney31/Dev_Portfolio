@@ -37,7 +37,7 @@ const SPARKLES_PATH =
 
 export default function OlivePage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16 w-full">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-16 w-full">
 
       <PageHeader
         badge="Mobile App"
@@ -47,11 +47,11 @@ export default function OlivePage() {
       />
 
       {/* Hero Card */}
-      <Card padding="p-8" className="mb-8 border-green-500/20 relative overflow-hidden">
+      <Card padding="p-5 sm:p-8" className="mb-8 border-green-500/20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-72 h-72 bg-green-500/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex items-start gap-5">
-          <div className="w-14 h-14 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
-            <svg className="w-7 h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <div className="flex items-start gap-3 sm:gap-5">
+          <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
+            <svg className="w-5 h-5 sm:w-7 sm:h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d={SPARKLES_PATH} />
             </svg>
           </div>
@@ -93,7 +93,7 @@ export default function OlivePage() {
       </Card>
 
       {/* Core Features */}
-      <Card padding="p-8" className="mb-8">
+      <Card padding="p-5 sm:p-8" className="mb-8">
         <h3 className="text-lg font-bold text-white mb-1">Core Features</h3>
         <p className="text-gray-500 text-sm mb-6">Built to make plant care intuitive, intelligent, and deeply personal.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

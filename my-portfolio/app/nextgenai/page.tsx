@@ -31,7 +31,7 @@ const TAKEAWAYS = [
 
 export default function NextGenAIPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16 w-full">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-16 w-full">
 
       <PageHeader
         badge="Conference · 2025"
@@ -41,11 +41,11 @@ export default function NextGenAIPage() {
       />
 
       {/* Hero Card */}
-      <Card padding="p-8" className="mb-8 border-yellow-500/20 relative overflow-hidden">
+      <Card padding="p-5 sm:p-8" className="mb-8 border-yellow-500/20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-72 h-72 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex items-start gap-5">
-          <div className="w-14 h-14 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center shrink-0">
-            <svg className="w-7 h-7 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <div className="flex items-start gap-3 sm:gap-5">
+          <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center shrink-0">
+            <svg className="w-5 h-5 sm:w-7 sm:h-7 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d={SPARKLES_PATH} />
             </svg>
           </div>
@@ -75,13 +75,13 @@ export default function NextGenAIPage() {
 
       {/* Defining Quote */}
       <div className="mb-8">
-        <Card padding="p-8" className="border-yellow-500/25 relative overflow-hidden">
+        <Card padding="p-5 sm:p-8" className="border-yellow-500/25 relative overflow-hidden">
           <div className="absolute top-0 left-0 bottom-0 w-1 bg-linear-to-b from-yellow-400/70 via-yellow-400/40 to-transparent rounded-l-2xl" />
           <div className="pl-5">
             <svg className="w-6 h-6 text-yellow-500/40 mb-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <blockquote className="text-white text-xl font-semibold leading-relaxed mb-4">
+            <blockquote className="text-white text-base sm:text-xl font-semibold leading-relaxed mb-4">
               The winner in AI isn&rsquo;t who uses the best model — it&rsquo;s who gives their model the best context.
             </blockquote>
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -94,7 +94,7 @@ export default function NextGenAIPage() {
       </div>
 
       {/* Key Takeaways */}
-      <Card padding="p-8" className="mb-8">
+      <Card padding="p-5 sm:p-8" className="mb-8">
         <h3 className="text-lg font-bold text-white mb-1">Key Takeaways</h3>
         <p className="text-gray-500 text-sm mb-6">Four themes that defined the conference and shaped my thinking.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

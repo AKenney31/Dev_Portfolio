@@ -15,7 +15,7 @@ interface CardProps {
   className?: string
 }
 
-export default function Card({ children, variant = 'default', padding = 'p-7', className = '' }: CardProps) {
+export default function Card({ children, variant = 'default', padding = 'p-5 sm:p-7', className = '' }: CardProps) {
   return (
     <div className={`${variantBase[variant]} ${padding} ${className}`}>
       {children}

@@ -176,7 +176,7 @@ export default function ChatInterface() {
   return (
     <div className="flex flex-col w-full max-w-4xl rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-xl overflow-hidden">
       {/* Chat header */}
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/60">
+      <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/60">
         <div className="flex items-center gap-3">
           <div>
             <p className="text-sm font-semibold text-gray-900 dark:text-white">Chat with me!</p>
@@ -186,7 +186,7 @@ export default function ChatInterface() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4 min-h-80 max-h-100">
+      <div className="chat-scroll flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-5 space-y-4 min-h-80 max-h-100">
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
@@ -216,7 +216,7 @@ export default function ChatInterface() {
       </div>
 
       {/* Input */}
-      <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/60">
+      <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/60">
         <div className="flex gap-3 items-end">
           <textarea
             value={input}

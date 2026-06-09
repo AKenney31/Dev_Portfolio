@@ -2,9 +2,9 @@ import ChatInterface from './components/ChatInterface'
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center px-6 py-20 gap-12">
+    <div className="flex flex-col items-center px-4 sm:px-6 py-12 sm:py-20 gap-8 sm:gap-12">
       <section className="text-center flex flex-col items-center gap-4">
-        <h1 className="text-5xl font-black tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
           Welcome to my portfolio
         </h1>
         <p className="text-sm font-semibold tracking-[0.25em] uppercase text-cyan-400">
