@@ -12,22 +12,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@keyframes wave-pulse {
-  0%, 100% {
-    transform: translateY(0px);
-    color: #e6edf3;
-  }
-  50% {
-    transform: translateY(-8px);
-    color: #22d3ee;
-    text-shadow: 0 0 18px rgba(34, 211, 238, 0.5);
-  }
-}
-
-.wave-letter {
-  display: inline-block;
-  animation: wave-pulse 1.8s ease-in-out infinite;
-}
 
 body {
   background: linear-gradient(160deg, #0d1117 0%, #0b0920 100%);

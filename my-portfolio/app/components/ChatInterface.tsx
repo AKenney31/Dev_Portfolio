@@ -9,7 +9,7 @@ type Message = {
 
 const INITIAL_MESSAGE: Message = {
   role: 'assistant',
-  content: "Hey! What would you like to know?",
+  content: "Hey! What would you like to know about me?",
 }
 
 function renderInline(text: string): React.ReactNode[] {
