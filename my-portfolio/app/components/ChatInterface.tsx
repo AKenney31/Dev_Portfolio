@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 
 type Message = {
   role: 'user' | 'assistant'
@@ -85,12 +85,37 @@ export default function ChatInterface() {
   const [input, setInput] = useState('')
   const [streaming, setStreaming] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
+  const textQueueRef = useRef('')
+  const animTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const fetchDoneRef = useRef(false)
 
   useEffect(() => {
     if (messages.length > 1) {
       bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
-  }, [messages])
+  }, [messages.length])
+
+  const drainQueue = useCallback(() => {
+    if (!textQueueRef.current) {
+      animTimerRef.current = null
+      if (fetchDoneRef.current) setStreaming(false)
+      return
+    }
+    const toAdd = textQueueRef.current.slice(0, 2)
+    textQueueRef.current = textQueueRef.current.slice(2)
+    setMessages((prev) => {
+      const last = prev[prev.length - 1]
+      return [...prev.slice(0, -1), { ...last, content: last.content + toAdd }]
+    })
+    animTimerRef.current = setTimeout(drainQueue, 15)
+  }, [])
+
+  const enqueueText = useCallback((text: string) => {
+    textQueueRef.current += text
+    if (!animTimerRef.current) {
+      animTimerRef.current = setTimeout(drainQueue, 0)
+    }
+  }, [drainQueue])
 
   const handleSend = async () => {
     if (!input.trim() || streaming) return
@@ -100,12 +125,18 @@ export default function ChatInterface() {
     setMessages([...messagesWithUser, { role: 'assistant', content: '' }])
     setInput('')
     setStreaming(true)
+    textQueueRef.current = ''
+    fetchDoneRef.current = false
+    if (animTimerRef.current) {
+      clearTimeout(animTimerRef.current)
+      animTimerRef.current = null
+    }
 
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: messagesWithUser }),
+        body: JSON.stringify({ messages: messagesWithUser.slice(1) }),
       })
 
       if (!response.ok || !response.body) throw new Error('Request failed')
@@ -116,18 +147,21 @@ export default function ChatInterface() {
       while (true) {
         const { done, value } = await reader.read()
         if (done) break
-        const chunk = decoder.decode(value, { stream: true })
-        setMessages((prev) => {
-          const last = prev[prev.length - 1]
-          return [...prev.slice(0, -1), { ...last, content: last.content + chunk }]
-        })
+        enqueueText(decoder.decode(value, { stream: true }))
       }
+
+      fetchDoneRef.current = true
+      if (!animTimerRef.current) setStreaming(false)
     } catch {
+      if (animTimerRef.current) {
+        clearTimeout(animTimerRef.current)
+        animTimerRef.current = null
+      }
+      textQueueRef.current = ''
       setMessages((prev) => [
         ...prev.slice(0, -1),
         { role: 'assistant', content: 'Sorry, something went wrong. Please try again.' },
       ])
-    } finally {
       setStreaming(false)
     }
   }
@@ -140,7 +174,7 @@ export default function ChatInterface() {
   }
 
   return (
-    <div className="flex flex-col w-full max-w-5xl rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-xl overflow-hidden">
+    <div className="flex flex-col w-full max-w-4xl rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-xl overflow-hidden">
       {/* Chat header */}
       <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/60">
         <div className="flex items-center gap-3">

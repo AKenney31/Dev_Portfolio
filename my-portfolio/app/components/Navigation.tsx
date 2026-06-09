@@ -6,10 +6,9 @@ import { usePathname } from 'next/navigation'
 const navLinks = [
   { href: '/education', label: 'Education' },
   { href: '/professional', label: 'Professional' },
-  { href: '/ai-ml', label: 'AI / ML' },
   { href: '/olive', label: 'Olive App' },
   { href: '/voice-ai', label: 'Voice AI' },
-  { href: '/nextgenai', label: 'NextGenAI 2026' },
+  { href: '/nextgenai', label: 'NextGenAI 2025' },
 ]
 
 export default function Navigation() {
