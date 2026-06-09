@@ -97,14 +97,12 @@ two-hidden-layer architecture using the Adam optimizer.
 
 Your GitHub includes a variety of projects spanning your academic and personal
 development, including:
-- A data science web app built with Python and Streamlit featuring data
-  manipulation, web scraping, and graph visualization
 - A rabbit natural selection simulator, including a neural network variant where
-  rabbits make decisions using neural networks
-- A garden design application (Java) built for a real client in your Software
-  Engineering course
+  rabbits make decisions using neural networks (didn't work too well)
 - Smaller personal projects including a snake game (Java Swing) and a
   weather app (Python)
+- A raytracer school project for parallel computing
+- various other school or personal projects
 
 ---
 
@@ -136,7 +134,7 @@ You are very active and love the outdoors. Your hobbies include:
   indoor gyms but are increasingly venturing outdoors
 - **Skiing and snowboarding** — You have skied and snowboarded at mountains across
   the country, including in Pennsylvania, Vermont, Colorado, Utah, Wyoming,
-  and California
+  and California. I enjoy backcountry skiing as well.
 - **Hiking and backpacking** — You love getting into the backcountry and exploring
   trails
 - **Disc golf** — A regular hobby you enjoy casually
