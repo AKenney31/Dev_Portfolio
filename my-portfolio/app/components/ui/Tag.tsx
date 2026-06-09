@@ -14,7 +14,6 @@ const variantClasses: Record<TagVariant, string> = {
 export interface TagProps {
   children: ReactNode
   variant?: TagVariant
-  /** Extra Tailwind classes — use for size, font, spacing overrides */
   className?: string
 }
 

@@ -7,7 +7,6 @@ const navLinks = [
   { href: '/education', label: 'Education' },
   { href: '/professional', label: 'Professional' },
   { href: '/olive', label: 'Olive App' },
-  { href: '/voice-ai', label: 'Voice AI' },
   { href: '/nextgenai', label: 'NextGenAI 2025' },
 ]
 

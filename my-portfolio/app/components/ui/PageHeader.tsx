@@ -9,7 +9,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ badge, title, subtitle, badgeVariant = 'cyan' }: PageHeaderProps) {
   return (
-    <div className="mb-12">
+    <div className="mb-12 pt-1">
       <Tag variant={badgeVariant} className="font-medium tracking-wide uppercase mb-4">
         {badge}
       </Tag>
