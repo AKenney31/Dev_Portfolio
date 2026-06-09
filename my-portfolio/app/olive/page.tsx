@@ -74,7 +74,7 @@ export default function OlivePage() {
                 href="https://plantwitholive.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500/15 border border-green-500/30 text-green-400 text-sm font-semibold hover:bg-green-500/25 hover:border-green-500/50 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 text-sm font-semibold hover:border-gray-500 hover:text-white transition-colors"
               >
                 Visit plantwitholive.com
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
